@@ -1,0 +1,9 @@
+[Unit]
+Description=Watch ARCHRUUD wallpaper selection
+
+[Path]
+PathChanged=%h/.local/state/archruud/wallpaper/current-wallpaper
+Unit=archruud-theme.service
+
+[Install]
+WantedBy=default.target

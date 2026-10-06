@@ -1,0 +1,6 @@
+backend = "fastresize"
+check_contrast = true
+fallback_generator = "interpolate"
+
+[templates]
+archruud = { template = 'archruud.json', target = '~/.cache/archruud/theme/wallust.json' }

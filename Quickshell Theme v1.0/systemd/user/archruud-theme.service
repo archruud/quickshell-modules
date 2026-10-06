@@ -1,0 +1,6 @@
+[Unit]
+Description=ARCHRUUD dynamic theme generator
+
+[Service]
+Type=oneshot
+ExecStart=%h/.config/quickshell/theme/scripts/apply-theme.sh auto
