@@ -1,0 +1,6 @@
+[Unit]
+Description=ARCHRUUD Overview - sync active wallpaper
+
+[Service]
+Type=oneshot
+ExecStart=%h/.config/quickshell/overview/scripts/sync-wallpaper.sh

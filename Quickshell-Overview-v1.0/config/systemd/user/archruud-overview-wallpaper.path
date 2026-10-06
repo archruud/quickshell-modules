@@ -1,0 +1,9 @@
+[Unit]
+Description=ARCHRUUD Overview - watch active wallpaper
+
+[Path]
+PathChanged=%h/.local/state/archruud/wallpaper/current-wallpaper
+Unit=archruud-overview-wallpaper.service
+
+[Install]
+WantedBy=default.target
