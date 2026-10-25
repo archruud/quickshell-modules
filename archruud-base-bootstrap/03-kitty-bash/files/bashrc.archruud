@@ -1,0 +1,116 @@
+# ~/.bashrc
+# Arch Linux Bash Configuration
+# Prompt med kun mappnavn + Aliaser fra zshrc
+
+# ═════════════════════════════════════════════════════════════
+# BASH CONFIGURATION
+# ═════════════════════════════════════════════════════════════
+
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+# History settings
+HISTCONTROL=ignoredups:erasedups
+shopt -s histappend
+HISTSIZE=10000
+HISTFILESIZE=20000
+
+# Check window size after each command
+shopt -s checkwinsize
+
+# Enable color support
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+fi
+
+# ═════════════════════════════════════════════════════════════
+# BASH PROMPT - Kun mappnavn (ikke full sti)
+# ═════════════════════════════════════════════════════════════
+
+# Kun mappnavn: Documents $
+# \W = kun siste mappe, \w = full sti
+PS1='\[\033[01;34m\]\W\[\033[00m\]\$ '
+
+# ═════════════════════════════════════════════════════════════
+# ALIASES - Komplett liste fra din .zshrc
+# ═════════════════════════════════════════════════════════════
+
+# ──────────────────────────────────────────────────────────────────────────
+# FILVISNING MED EXA (moderne ls med farger og ikoner)
+# ──────────────────────────────────────────────────────────────────────────
+alias ls='eza -a --icons'                      # Vis alt som standard med ikoner
+alias l='eza -la --icons --git'                # Detaljert visning av alt + Git-status
+alias lt='eza --tree -a --icons --level=2'     # Trevisning med alt, begrenset dybde
+alias lh='eza -la --icons --git --header'      # Detaljert + kolonnenavn øverst
+
+# ──────────────────────────────────────────────────────────────────────────
+# PAKKEBEHANDLING - YAY (søker i official + AUR)
+# ──────────────────────────────────────────────────────────────────────────
+alias i='yay -S --needed'                      # Installer fra ALT (official + AUR)
+alias r='yay -Rns'                             # Fjern pakker komplett (med dependencies)
+alias u='yay -Syu'                             # Oppdater hele systemet (official + AUR)
+alias s='yay -Ss'                              # Søk i ALT (official + AUR)
+alias q='yay -Q'                               # Alle installerte pakker
+alias qe='yay -Qe'                             # Eksplisitt installerte pakker
+alias qm='yay -Qm'                             # AUR/uoffisielle pakker (yay-installerte)
+alias qn='yay -Qn'                             # Offisielle pakker (pacman repositories)
+
+# ──────────────────────────────────────────────────────────────────────────
+# PAKKEBEHANDLING - PACMAN (søker KUN i official repos)
+# ──────────────────────────────────────────────────────────────────────────
+alias ii='sudo pacman -S --needed'             # Installer KUN fra official repos
+alias rr='sudo pacman -Rns'                    # Fjern med pacman
+alias ss='pacman -Ss'                          # Søk KUN i official repos (ingen AUR)
+alias uu='sudo pacman -Syu'                    # Oppdater KUN official pakker
+
+# ──────────────────────────────────────────────────────────────────────────
+# GIT SHORTCUTS
+# ──────────────────────────────────────────────────────────────────────────
+alias gc='git clone'                           # Git clone snarvei
+alias gs='git status'                          # Git status
+alias ga='git add'                             # Git add
+alias gp='git push'                            # Git push
+alias gl='git log --oneline'                   # Git log (kort format)
+
+# ──────────────────────────────────────────────────────────────────────────
+# NANO TEKSTEDITOR
+# ──────────────────────────────────────────────────────────────────────────
+alias n='nano -l'                              # Nano med linjenummer
+alias nn='nano -liT 4'                         # Nano med linjenummer + auto-indent + pene tabs
+
+# ──────────────────────────────────────────────────────────────────────────
+# ANDRE NYTTIGE ALIASES
+# ──────────────────────────────────────────────────────────────────────────
+alias cat='bat'                                # Bat (bedre cat med syntax highlighting)
+alias grep='grep --color=auto'                 # Grep med farger
+alias ..='cd ..'                               # Opp én mappe
+alias ...='cd ../..'                           # Opp to mapper
+alias ....='cd ../../..'                       # Opp tre mapper
+alias cls='clear'                              # Tøm terminal (Windows-stil)
+alias h='history'                              # Vis kommando-historikk
+
+# ──────────────────────────────────────────────────────────────────────────
+# HYPRLAND/SYSTEM SHORTCUTS
+# ──────────────────────────────────────────────────────────────────────────
+alias hyprconf='nano ~/.config/hypr/hyprland.lua'               # Rediger Hyprland config
+alias barconf='nano ~/.config/quickshell/bar/widgets/Bar.qml'   # Rediger Quickshell bar (erstatter gammel Waybar)
+alias kitconf='nano ~/.config/kitty/kitty.conf'                 # Rediger Kitty config
+alias bashconf='nano ~/.bashrc'                                 # Rediger bashrc
+alias hyprrules='hyprctl clients'                               # Se window rules
+alias hyprlayers='hyprctl layers'                               # Se layers
+alias hyprinfo='hyprctl systeminfo'                             # Hyprland info
+alias reload='source ~/.bashrc'                                 # Last inn bashrc på nytt
+
+# ──────────────────────────────────────────────────────────────────────────
+# SIKKERHETSKOPIERING OG SYSTEM
+# ──────────────────────────────────────────────────────────────────────────
+alias backup='rsync -avh --progress'           # Rsync med progress
+alias df='df -h'                               # Disk usage human-readable
+alias free='free -h'                           # Memory usage human-readable
+alias ports='netstat -tulanp'                  # Vis åpne porter
+
+# ═════════════════════════════════════════════════════════════
+# SLUTT PÅ .BASHRC
+# ═════════════════════════════════════════════════════════════
+
+# make-executable script alias

@@ -1,0 +1,63 @@
+# Utvikling / Git / grunnverktøy
+base-devel
+git
+curl
+wget
+cmake
+nano
+jq
+rsync
+eza
+bat
+net-tools
+
+# Quickshell-fundament
+quickshell
+
+# Nettverk / LAN / Wi-Fi
+networkmanager
+
+# Lyd
+pipewire
+pipewire-audio
+pipewire-alsa
+pipewire-pulse
+wireplumber
+
+# Bluetooth backend
+bluez
+bluez-utils
+
+# Autorisasjon, disker og secrets
+hyprpolkitagent
+udisks2
+gnome-keyring
+libsecret
+
+# Dolphin / KIO / nettverksshare
+kio-extras
+kio-fuse
+smbclient
+cifs-utils
+
+# XDG / MIME / norsk mappestruktur
+xdg-utils
+xdg-user-dirs
+archlinux-xdg-menu
+
+# Wayland-hjelpeverktøy
+wl-clipboard
+
+# Font brukt i ARCHRUUD-oppsettet
+ttf-jetbrains-mono-nerd
+
+# Programmer Terje bruker på workstation
+firefox
+zed
+kate
+libreoffice-fresh
+libreoffice-fresh-nb
+
+# Bilde/PDF-notater – flyttet hit fra gammel 02
+gwenview
+xournalpp

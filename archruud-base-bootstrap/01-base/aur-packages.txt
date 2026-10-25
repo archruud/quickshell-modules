@@ -1,0 +1,3 @@
+# Bevisst tom i første versjon.
+# Alt som trengs i bootstrap finnes nå i Arch sine offisielle repositories.
+# Legg bare AUR-pakker her når vi faktisk trenger dem.
